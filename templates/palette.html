@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Colour Palette Generator</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{{url_for('upload_file')}}">Colour Palette Generator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            </div>
+        </nav>
+
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center m-5">
+                <h1>Colour Palette Generator</h1>
+            </div>
+        </div>
+
+        <div class="container-fluid justify-content-center">
+            <div class="row" style="height:50px">
+                {% for hex in hex_list %}
+                    <div class="col-lg-1 col-md-1 col-sm-1 mx-auto" style="background-color:{{hex}}">
+                        <p></p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for hex in hex_list %}
+                    <div class=" col-lg-1 col-md-1 col-sm-1 mx-auto">
+                        <p> {{hex}} </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="text-center m-5">
+                <img src="{{ user_image_path }}">
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+    </body>
+</html>
